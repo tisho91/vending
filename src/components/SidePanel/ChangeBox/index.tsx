@@ -1,18 +1,21 @@
 import styles from './styles.module.css'
+import {useVendingMachine} from "../../../context/Provider.tsx";
+
+
+
 
 export const ChangeBox = () => {
-    const  change =  {}
-
+    const {state} = useVendingMachine()
     return (
         <div className={styles.changeBox}>
             <h4>Change:</h4>
             <div className={styles.coinsList}>
-                {Object.keys(change || {}).length === 0 ? (
+                {!state.change ? (
                     <span>—</span>
                 ) : (
-                    Object.entries(change).map(([coin, count]) => (
+                    Object.entries(state.change).map(([coin, count]) => (
                         <div key={coin} className={styles.coinItem}>
-                            {coin} × {String(count)}
+                             {String(count)} × { Number(coin) < 1 ? `${Number(coin)*100}¢` : `${Number(coin)}€` }
                         </div>
                     ))
                 )}

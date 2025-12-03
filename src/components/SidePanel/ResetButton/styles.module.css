@@ -11,4 +11,7 @@
     &:hover {
         background: #c62828;
     }
+    &:disabled {
+        opacity: 0.8;
+    }
 }

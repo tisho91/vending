@@ -1,4 +1,6 @@
 import styles from './styles.module.css'
+import {useVendingMachine} from "../../../../context/Provider.tsx";
+import {ActionTypes} from "../../../../types";
 
 
 export interface CoinProps {
@@ -7,9 +9,14 @@ export interface CoinProps {
 }
 
 export const Coin = ({value, label}: CoinProps) => {
-
+    const {dispatch} = useVendingMachine();
+    const insertCoin = () => {
+        dispatch({
+            type: ActionTypes.INSERT_COIN, payload: value
+        })
+    }
     return (
-        <div className={styles.coin}>
+        <div className={styles.coin} onClick={insertCoin}>
             {label}{value < 1 ? '¢' : '€'}
         </div>
     );

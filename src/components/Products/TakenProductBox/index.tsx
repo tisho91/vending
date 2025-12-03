@@ -1,19 +1,25 @@
 import styles from './styles.module.css'
 import {useVendingMachine} from "../../../context/Provider.tsx";
+import {ActionTypes} from "../../../types";
 
 
 export const TakenProductBox = () => {
-    const { state } = useVendingMachine();
-    // const { lastTakenProduct } = state;
-const lastTakenProduct = state.products[0]
+    const { state, dispatch } = useVendingMachine();
+    const { boughtProduct, change } = state;
 
-    if (!lastTakenProduct) return null;
+    const takeProduct = () =>{
+        dispatch({
+            type: ActionTypes.TAKE_PRODUCT
+        })
+    }
+
+    if (!boughtProduct) return null;
 
     return (
         <div className={styles.takenBox}>
-            <span>You took: {lastTakenProduct.name}</span>
-            <button className={styles.takeButton} >
-                Take Product & Change
+            <span>You took: {boughtProduct.name}</span>
+            <button className={styles.takeButton} onClick={takeProduct} >
+                Take Product {Object.keys(change || {}).length ? '& Change' : null}
             </button>
         </div>
     );
