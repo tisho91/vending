@@ -1,0 +1,14 @@
+.resetButton {
+    padding: 6px 10px;
+    background: #e53935;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.15s;
+    user-select: none;
+    &:hover {
+        background: #c62828;
+    }
+}

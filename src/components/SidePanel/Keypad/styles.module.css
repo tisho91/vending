@@ -1,0 +1,39 @@
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 48px);
+    grid-auto-rows: 48px;
+    gap: 8px;
+    justify-content: center;
+}
+
+.key {
+    border-radius: 8px;
+    border: 2px solid #d7e2f3;
+    background: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    &:hover {
+        background: #7bc3ff;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+    &:empty{
+        background: transparent;
+        border: none;
+        cursor: default;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .keypad {
+        grid-template-columns: repeat(3, 36px);
+        grid-auto-rows: 36px;
+        gap: 6px;
+    }
+}

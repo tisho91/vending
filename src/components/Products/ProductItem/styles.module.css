@@ -1,0 +1,40 @@
+.item {
+    flex: 1 1 120px;
+    max-width: 130px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px 10px;
+    border: 2px solid #e8ebf3;
+    text-align: center;
+    cursor: pointer;
+    transition: all .18s;
+    user-select: none;
+    &:hover {
+        border-color: #7bc3ff;
+        transform: translateY(-2px);
+    }
+}
+
+.name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #344b73;
+}
+
+.price {
+    font-size: 13px;
+    margin-top: 6px;
+    color: #5a6b8c;
+}
+
+@media (max-width: 768px) {
+    .item {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        flex: 1 1 100%;
+    }
+}

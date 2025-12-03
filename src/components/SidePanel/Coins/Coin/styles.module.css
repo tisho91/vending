@@ -1,0 +1,17 @@
+.coin {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff7c0, #fbc02d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s;
+    border: 1px solid #f0c419;
+    user-select: none;
+    &:hover{
+        transform: scale(1.1);
+    }
+}

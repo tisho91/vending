@@ -1,0 +1,54 @@
+.changeBox {
+    background: #fffde7; /* светло жълто, като tray */
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #fce570;
+    box-shadow: inset 0 -2px 8px rgba(0,0,0,0.1);
+    margin-top: auto;
+}
+
+.changeBox h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #6b4f00;
+    font-weight: 700;
+}
+
+.coinsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.coinItem {
+    background: #fff59d;
+    padding: 6px 10px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #fbc02d;
+    color: #6b4f00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    transition: transform 0.15s;
+    &:hover {
+        transform: scale(1.1);
+
+    }
+}
+
+@media (max-width: 480px) {
+    .coinsList {
+        gap: 4px;
+    }
+    .coinItem {
+        min-width: 28px;
+        min-height: 28px;
+        font-size: 12px;
+    }
+}

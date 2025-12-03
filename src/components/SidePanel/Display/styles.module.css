@@ -1,0 +1,14 @@
+.display {
+    background: #e0f7fa;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    color: #007c91;
+    font-weight: 700;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+}
+
+.display .line {
+    font-size: 14px;
+    margin: 4px 0;
+}
