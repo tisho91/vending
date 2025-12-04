@@ -9,11 +9,15 @@ export interface CoinProps {
 }
 
 export const Coin = ({value, label}: CoinProps) => {
-    const {dispatch} = useVendingMachine();
+    const {state, dispatch} = useVendingMachine();
+    const disabled = state.adminMode || !!state.boughtProduct
     const insertCoin = () => {
-        dispatch({
-            type: ActionTypes.INSERT_COIN, payload: value
-        })
+        if (!disabled) {
+            dispatch({
+                type: ActionTypes.INSERT_COIN, payload: value
+            })
+        }
+
     }
     return (
         <div className={styles.coin} onClick={insertCoin}>

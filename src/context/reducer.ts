@@ -4,7 +4,8 @@ export const initialState: MachineState = {
     products: [],
     change: null,
     insertedCoins: null,
-    selectedProductId: null
+    selectedProductId: null,
+    adminMode: false
 };
 
 export const reducer = (state = initialState, action: Action): MachineState => {
@@ -49,7 +50,8 @@ export const reducer = (state = initialState, action: Action): MachineState => {
         case ActionTypes.TAKE_PRODUCT: {
             return {
                 ...initialState,
-                products: state.products
+                products: state.products,
+                adminMode: state.adminMode
             }
         }
 
@@ -58,6 +60,40 @@ export const reducer = (state = initialState, action: Action): MachineState => {
                 ...state,
                 change: state.insertedCoins,
                 insertedCoins: null
+            }
+        }
+
+        case ActionTypes.TOGGLE_ADMIN: {
+            return {
+                ...state,
+                adminMode: !state.adminMode
+            }
+        }
+
+        case ActionTypes.RESTOCK_PRODUCT: {
+            return {
+                ...state,
+                products: state.products.map(product => {
+                    if (product.id === action.payload){
+                        return {
+                            ...product,
+                            stock: 15
+                        }
+                    }
+                    return product;
+                })
+            }
+        }
+        case ActionTypes.REMOVE_PRODUCT: {
+            return {
+                ...state,
+                products: state.products.filter(product => product.id !== action.payload)
+            }
+        }
+        case ActionTypes.ADD_PRODUCT: {
+            return {
+                ...state,
+                products: [...state.products, action.payload]
             }
         }
         default:

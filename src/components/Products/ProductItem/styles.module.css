@@ -9,6 +9,12 @@
     cursor: pointer;
     transition: all .18s;
     user-select: none;
+    &.disabled {
+        &:hover {
+           border-color: #e8ebf3;
+            transform: none;
+        }
+    }
     &:hover {
         border-color: #7bc3ff;
         transform: translateY(-2px);
@@ -25,6 +31,32 @@
     font-size: 13px;
     margin-top: 6px;
     color: #5a6b8c;
+}
+
+.actions {
+    display: flex;
+    gap: 6px;
+}
+
+.actionBtn {
+    border: none;
+    background: #f1f1f1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+
+    &:hover {
+        background: #e2e2e2;
+        transform: translateY(-1px);
+    }
+
+    &:disabled {
+        background: #ddd;
+        cursor: not-allowed;
+        transform: none;
+    }
 }
 
 @media (max-width: 768px) {
