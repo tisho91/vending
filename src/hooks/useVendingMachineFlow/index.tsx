@@ -22,6 +22,4 @@ export const useVendingMachineFlow = () => {
         })
 
     }, [dispatch, insertedAmount, selectedProduct])
-
-
 }

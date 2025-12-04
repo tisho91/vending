@@ -8,8 +8,9 @@ export const selectSelectedProduct = (state: MachineState) => {
 
 export const selectInsertedAmount = (state: MachineState) => {
     let amount = 0;
-    Object.keys(state?.insertedCoins || {}).forEach((coin: number) => {
-        amount+= state.insertedCoins[coin]* coin
+    Object.keys(state?.insertedCoins || {}).forEach((coin) => {
+        const coinValue = Number(coin);
+        amount += Number(state?.insertedCoins?.[coinValue] || 0) * coinValue
     })
     return amount;
 }

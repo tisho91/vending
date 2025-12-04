@@ -1,6 +1,6 @@
-import styles from './styles.module.css';
 import {ActionTypes} from "../../../types";
 import {useVendingMachine} from "../../../context/Provider.tsx";
+import styles from './styles.module.css';
 
 export const AdminMode = ({id, stock}: { id: number, stock: number }) => {
     const {dispatch} = useVendingMachine()

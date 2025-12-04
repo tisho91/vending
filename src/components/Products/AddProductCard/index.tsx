@@ -70,6 +70,8 @@ export const AddProductCard = () => {
     }, [product.id, product.name, product.price, product.stock, state.products])
 
     const addProduct = () => {
+        console.log(error)
+
         if (isValid) {
             dispatch({
                 type: ActionTypes.ADD_PRODUCT,
@@ -125,6 +127,7 @@ export const AddProductCard = () => {
                     min={0}
                     max={15}
                     value={product.stock}
+                    placeholder={'Stock'}
                     onChange={(e) => {
                         changeStock(e.target.value)
                     }}
